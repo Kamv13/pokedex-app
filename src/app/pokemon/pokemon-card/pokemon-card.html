@@ -1,0 +1,17 @@
+<div class="card h-100 text-center shadow-sm border-0">
+  <div class="card-body d-flex flex-column align-items-center p-3">
+    <img
+      [src]="pokemon().image"
+      [alt]="pokemon().name"
+      class="img-fluid mb-2"
+      style="width:100px; height:100px; object-fit:contain"
+    />
+    <p class="text-muted small mb-0">#{{ pokemon().id.toString().padStart(4, '0') }}</p>
+    <p class="fw-bold mb-1">{{ pokemon().name | titlecase }}</p>
+    <div class="d-flex gap-1 justify-content-center flex-wrap">
+      @for (type of pokemon().types; track type) {
+        <span [class]="'badge type ' + type">{{ type }}</span>
+      }
+    </div>
+  </div>
+</div>
